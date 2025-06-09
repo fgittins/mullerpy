@@ -33,24 +33,10 @@ which has roots at $x = n \pi$ for integer $n$. The result object has a `.root` 
 
 ## Installation
 
-You can install `mullerpy` in one of the following ways:
-
-### From source (locally)
-
-Clone the repository and install using `pip`:
+It is easy to install `mullerpy` with `pip`:
 
 ```
-git clone https://github.com/fgittins/mullerpy.git
-cd mullerpy
-pip install .
-```
-
-### Directly from GitHub
-
-Or you can install directly from GitHub:
-
-```
-pip install git+https://github.com/fgittins/mullerpy.git
+pip install mullerpy
 ```
 
 ## Testing
