@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="assets/logo.png" alt="mullerpy logo" width="300">
+</div>
+
 [![PyPI version](https://img.shields.io/pypi/v/mullerpy.svg)](https://pypi.org/project/mullerpy/)
 
 # mullerpy
