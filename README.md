@@ -1,3 +1,5 @@
+[![PyPI version](https://img.shields.io/pypi/v/mullerpy.svg)](https://pypi.org/project/mullerpy/)
+
 # mullerpy
 
 A Python implementation of Muller's method.
