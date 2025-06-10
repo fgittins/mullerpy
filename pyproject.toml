@@ -1,6 +1,6 @@
 [project]
 name = "mullerpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python implementation of Muller's method."
 readme = "README.md"
 authors = [{name = "Fabian Gittins", email = "f.w.r.gittins@uu.nl"}]
