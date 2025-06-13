@@ -29,8 +29,8 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "mypy>=1.14.1",
     "numpy>=1.24.4",
-    "pyright>=1.1.401",
     "pytest>=8.3.5",
     "pytest-cov>=5.0.0",
     "ruff>=0.11.11",
@@ -39,8 +39,8 @@ dev = [
 [tool.hatch.build.targets.wheel]
 packages = ["src/mullerpy"]
 
-[tool.pyright]
-typeCheckingMode = "strict"
+[tool.mypy]
+strict = true
 
 [tool.ruff]
 line-length = 79
