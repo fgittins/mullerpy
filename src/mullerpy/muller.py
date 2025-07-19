@@ -12,6 +12,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable, Iterable
 
+NUM_GUESSES = 3
+
 
 @dataclass
 class Result:
@@ -34,6 +36,23 @@ class Result:
     iterations: int
     is_converged: bool
     flag: str
+
+
+def _validate_inputs(
+    x: tuple[complex, ...], xtol: float, ftol: float, maxiter: int
+) -> None:
+    if len(x) != NUM_GUESSES:
+        msg = "`x` must contain exactly three numbers"
+        raise ValueError(msg)
+    if xtol < 0:
+        msg = f"`xtol` is negative ({xtol} < 0)"
+        raise ValueError(msg)
+    if ftol < 0:
+        msg = f"`ftol` is negative ({ftol} < 0)"
+        raise ValueError(msg)
+    if maxiter < 1:
+        msg = "`maxiter` must be greater than or equal to `1`"
+        raise ValueError(msg)
 
 
 def muller(
@@ -79,18 +98,7 @@ def muller(
     (Cambridge University Press, Cambridge, UK; http://numerical.recipes/book.html).
     """
     x = tuple(x)
-    if len(x) != 3:
-        msg = "`x` must contain exactly three numbers"
-        raise ValueError(msg)
-    if xtol < 0:
-        msg = f"`xtol` is negative ({xtol} < 0)"
-        raise ValueError(msg)
-    if ftol < 0:
-        msg = f"`ftol` is negative ({ftol} < 0)"
-        raise ValueError(msg)
-    if maxiter < 1:
-        msg = "`maxiter` must be greater than or equal to `1`"
-        raise ValueError(msg)
+    _validate_inputs(x, xtol, ftol, maxiter)
 
     if args is not None:
 
