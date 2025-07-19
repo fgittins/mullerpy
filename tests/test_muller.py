@@ -82,11 +82,11 @@ class TestMuller(TestCase):
         x = (10, 20, 30)
 
         res = muller(g, x, xtol=0)
-        self.assertTrue(res.converged)
+        self.assertTrue(res.is_converged)
         self.assertIn("function", res.flag)
 
         res = muller(g, x, ftol=0)
-        self.assertTrue(res.converged)
+        self.assertTrue(res.is_converged)
         self.assertIn("root", res.flag)
 
     def test_errors(self) -> None:

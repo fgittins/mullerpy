@@ -24,7 +24,7 @@ class Result:
         Estimated root.
     iterations : int
         Number of iterations needed to find root.
-    converged : bool
+    is_converged : bool
         True if routine converged.
     flag : str
         Description of cause of termination.
@@ -32,7 +32,7 @@ class Result:
 
     root: complex
     iterations: int
-    converged: bool
+    is_converged: bool
     flag: str
 
 
@@ -104,7 +104,7 @@ def muller(
     ximinus2, ximinus1, xi = x
     yiminus2, yiminus1, yi = call_f(ximinus2), call_f(ximinus1), call_f(xi)
 
-    converged = False
+    is_converged = False
     flag = "Routine did not converge"
 
     xiplus1 = ximinus2
@@ -131,7 +131,7 @@ def muller(
                 "Routine has reached desired tolerance in absolute function "
                 f"value ({absy} <= {ftol})"
             )
-            converged = True
+            is_converged = True
             break
         absx = abs(xiplus1 - xi)
         if xtol >= absx:
@@ -139,7 +139,7 @@ def muller(
                 "Routine has reached desired tolerance in absolute root "
                 f"value ({absx} <= {xtol})"
             )
-            converged = True
+            is_converged = True
             break
 
         ximinus2, ximinus1, xi = ximinus1, xi, xiplus1
@@ -147,4 +147,4 @@ def muller(
 
         i += 1
 
-    return Result(xiplus1, i + 1, converged, flag)
+    return Result(xiplus1, i + 1, is_converged, flag)
